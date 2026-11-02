@@ -12,7 +12,9 @@ Every page's header has a **Reserve a table** button. It opens a dialog that ask
 
 ## Run it locally
 
-The menu is loaded from `data/menu.csv` with `fetch()`. Browsers block that when you open the HTML directly from a `file://` address, so serve the folder instead. Either:
+You can double-click `index.html` to open it straight from the folder. Browsers block a page opened that way from reading `data/menu.csv`, so in that case the site loads `data/menu-data.js`, a generated copy of the CSV, instead. On a server, including Vercel, it always reads the CSV.
+
+To run it the way it runs online, serve the folder. Either:
 
 - in Claude Code, run `preview_start brew-and-co` (port 8771), or
 - run any static server, for example:
@@ -28,6 +30,11 @@ The menu is loaded from `data/menu.csv` with `fetch()`. Browsers block that when
   - `popular` is `yes` or `no`. The home page shows the first 6 `yes` items.
   - Categories appear in the order they first show up in the file.
   - Category notes live in `js/menu.js` (`CATEGORY_NOTES`).
+  - **After every edit to the CSV, regenerate the copy** so the menu still works when opened from the folder. Otherwise that view shows the old menu.
+
+    ```bash
+    powershell -NoProfile -ExecutionPolicy Bypass -File tools/update-menu-data.ps1
+    ```
 - **Events** repeat weekly and are worked out from today's date (`EVENT_TYPES` in `js/site.js`):
   - Open Mic every Friday, 7–10pm
   - Cupping every Saturday, 9:30–11am

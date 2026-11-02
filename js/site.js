@@ -58,11 +58,25 @@
     });
   }
 
+  // Opened straight from the folder (file://), browsers block fetch() of the CSV,
+  // so fall back to data/menu-data.js, a copy of it a plain <script> can load.
+  function loadMenuScript() {
+    return new Promise((resolve, reject) => {
+      if (window.BREW_MENU_CSV) return resolve(window.BREW_MENU_CSV);
+      const s = document.createElement('script');
+      s.src = 'data/menu-data.js';
+      s.onload = () => window.BREW_MENU_CSV ? resolve(window.BREW_MENU_CSV) : reject(new Error('empty'));
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
   let menuPromise = null;
   function loadMenu() {
     if (!menuPromise) {
       menuPromise = fetch('data/menu.csv')
         .then(res => { if (!res.ok) throw new Error(res.status); return res.text(); })
+        .catch(loadMenuScript)
         .then(parseCSV);
     }
     return menuPromise;
@@ -88,10 +102,8 @@
   }
 
   function loadFailedHTML() {
-    const local = location.protocol === 'file:';
-    return `<div class="notice warn" role="status"><div><strong>The menu couldn't load.</strong> ${local
-      ? 'Browsers block reading the CSV from a file:// page. Start the local server (see README) and open the site from http://localhost.'
-      : 'Please refresh the page, or pop in and read the chalkboard instead.'}</div></div>`;
+    return `<div class="notice warn" role="status"><div><strong>The menu couldn't load.</strong>
+      Please refresh the page, or pop in and read the chalkboard instead.</div></div>`;
   }
 
   /* ---------- Events ---------- */
