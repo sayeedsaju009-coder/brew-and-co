@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brew &amp; Co — Specialty coffee in Brooklyn</title>
+  <meta name="description" content="Brew & Co is a cosy neighbourhood coffee shop in Brooklyn serving specialty coffee, fresh pastries and light lunches. Open mic Fridays, coffee tastings Saturdays.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="wordmark" href="index.html">Brew <span>&amp;</span> Co</a>
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span><span class="sr-only">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About us</a>
+        <button class="btn sm nav-cta" type="button" data-open-reserve>Reserve a table</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Specialty coffee · Fresh pastries · Light lunches</p>
+        <h1>Your corner of Brooklyn, one cup at a time.</h1>
+        <p class="hero-lede">Slow-brewed coffee, croissants out of the oven by 7, and a table by the window with your name on it.</p>
+        <div class="row hero-actions">
+          <button class="btn primary lg" type="button" data-open-reserve>Reserve a table</button>
+          <a class="btn lg on-photo" href="menu.html">View the menu</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="loved-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">From the counter</p>
+          <h2 id="loved-title" class="section-title">Most loved</h2>
+        </div>
+        <a class="see-all" href="menu.html">See the full menu →</a>
+      </div>
+      <div class="popular-grid" id="popular-grid" aria-live="polite">
+        <p class="muted">Loading the menu…</p>
+      </div>
+    </section>
+
+    <section class="section band" aria-labelledby="events-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">What's on</p>
+          <h2 id="events-title" class="section-title">Upcoming at Brew &amp; Co</h2>
+        </div>
+      </div>
+      <div class="events-grid" id="events-grid"></div>
+    </section>
+
+    <section class="section visit" aria-labelledby="visit-title">
+      <div class="visit-card card">
+        <div>
+          <p class="eyebrow">Come say hello</p>
+          <h2 id="visit-title" class="section-title">Visit us</h2>
+          <p>214 Hartwell Street, Brooklyn, NY 11216<br><span class="muted">Two blocks from the park, look for the green awning.</span></p>
+        </div>
+        <dl class="hours">
+          <div><dt>Mon – Thu</dt><dd>7am – 6pm</dd></div>
+          <div><dt>Friday</dt><dd>7am – 10pm</dd></div>
+          <div><dt>Saturday</dt><dd>8am – 6pm</dd></div>
+          <div><dt>Sunday</dt><dd>8am – 4pm</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <p class="wordmark">Brew <span>&amp;</span> Co</p>
+        <p class="muted small">Specialty coffee, fresh pastries and light lunches in Brooklyn since 2019.</p>
+      </div>
+      <div>
+        <p class="footer-title">Find us</p>
+        <p class="muted small">214 Hartwell Street<br>Brooklyn, NY 11216<br>hello@brewandco.example</p>
+      </div>
+      <div>
+        <p class="footer-title">Follow along</p>
+        <p class="small footer-links"><a href="#">Instagram</a> <a href="#">TikTok</a> <a href="#">Newsletter</a></p>
+      </div>
+    </div>
+    <p class="muted small footer-credit">Photography from <a href="https://www.pexels.com">Pexels</a>.</p>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script>BrewCo.renderHome();</script>
+</body>
+</html>

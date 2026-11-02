@@ -1,0 +1,169 @@
+/*
+  Hearth design tokens
+  --------------------
+  Drop-in replacement for the :root block at the top of each app's styles.css.
+  The core names (--bg, --surface, --text, --muted, --border, --accent,
+  --accent-text, --track, --good, --warn, --danger, --shadow) are the names the
+  four apps already use, so existing rules keep working after the swap.
+
+  Palette source: docs/design/references (latte + croissant, sunlit café,
+  espresso bar). Every text/background pair below meets WCAG 2.1 AA (4.5:1);
+  see style-guide.md for the measured ratios.
+*/
+
+:root {
+  /* ---- Colour: surfaces ---- */
+  --bg: #f7f1e8;            /* oat — page background */
+  --surface: #fffaf3;       /* cream stoneware — cards, inputs, menus */
+  --surface-2: #efe5d6;     /* latte foam — hover rows, wells, segmented track */
+  --surface-sunk: #f2e9dc;  /* recessed input / code background */
+
+  /* ---- Colour: text ---- */
+  --text: #2b1d14;          /* espresso */
+  --muted: #6e5a49;         /* cocoa — secondary text, labels, meta */
+
+  /* ---- Colour: lines ---- */
+  --border: #e6d8c5;        /* hairline — card and divider borders (decorative) */
+  --border-strong: #93806b; /* input and control outlines (3:1 against surface) */
+
+  /* ---- Colour: brand ---- */
+  --accent: #9a4a1f;        /* caramel roast — primary actions, selected tab, links */
+  --accent-hover: #833c16;
+  --accent-text: #fffaf3;   /* text on --accent */
+  --accent-soft: #f5e1cb;   /* selected chip, highlight wash */
+  --brass: #b08a4a;         /* decorative only (rules, icons, stars) — never body text */
+  --walnut: #6b4428;        /* decorative wood tone — header bands, illustration */
+
+  /* ---- Colour: status ---- */
+  --good: #4e6b3f;          /* sage leaf — success, done, income */
+  --good-soft: #e3ead8;
+  --warn: #8a5a10;          /* honey — near a limit */
+  --warn-soft: #f6e6c3;
+  --danger: #a8321c;        /* paprika — errors, destructive, expense */
+  --danger-soft: #f7ddd5;
+
+  /* ---- Colour: data ---- */
+  --track: #ece2d4;         /* empty bar, empty heat-map cell, progress track */
+  --data-1: #9a4a1f;        /* caramel */
+  --data-2: #4e6b3f;        /* sage */
+  --data-3: #b08a4a;        /* brass */
+  --data-4: #5d6f86;        /* slate (window light) */
+  --data-5: #8c5a7a;        /* plum */
+  --data-6: #6b4428;        /* walnut */
+
+  /* ---- Typography ---- */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --text-xs: 0.75rem;   /* 12px — badges, axis labels */
+  --text-sm: 0.8125rem; /* 13px — meta, helper text */
+  --text-md: 0.9375rem; /* 15px — body (the apps' existing base size) */
+  --text-lg: 1.0625rem; /* 17px — card titles (h2) */
+  --text-xl: 1.375rem;  /* 22px — section titles */
+  --text-2xl: 1.75rem;  /* 28px — page title (h1), stat values */
+  --text-3xl: 2.25rem;  /* 36px — hero numbers */
+
+  --leading-tight: 1.2;
+  --leading-body: 1.5;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---- Space (4px grid) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --gutter: 16px;          /* page side padding, required at phone width */
+  --content-max: 760px;    /* single-column app width */
+  --content-wide: 1040px;  /* grid apps (recipe-book) */
+
+  /* ---- Shape ---- */
+  --radius-sm: 8px;        /* buttons, inputs, chips */
+  --radius: 12px;          /* cards */
+  --radius-lg: 16px;       /* modals, hero panels */
+  --radius-pill: 999px;    /* pills, swatches, check circles */
+
+  /* ---- Elevation (warm-tinted, never grey) ---- */
+  --shadow: 0 1px 2px rgba(60, 35, 15, 0.06), 0 1px 1px rgba(60, 35, 15, 0.04);
+  --shadow-md: 0 4px 12px rgba(60, 35, 15, 0.08);
+  --shadow-lg: 0 12px 32px rgba(60, 35, 15, 0.14);
+  --focus-ring: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+
+  /* ---- Motion ---- */
+  --dur-fast: 120ms;
+  --dur: 200ms;
+  --dur-slow: 320ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ---- Layers ---- */
+  --z-sticky: 10;
+  --z-toast: 40;
+  --z-modal: 50;
+
+  color-scheme: light;
+}
+
+/* Evening café: the same room after dark, lit by pendant lamps. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #18120d;
+    --surface: #221912;
+    --surface-2: #2d2219;
+    --surface-sunk: #1d150f;
+
+    --text: #f3e9dc;
+    --muted: #b9a590;
+
+    --border: #3b2d22;
+    --border-strong: #7a6552;
+
+    --accent: #e39a5b;
+    --accent-hover: #eeae75;
+    --accent-text: #18120d;
+    --accent-soft: #3d2615;
+    --brass: #c9a466;
+    --walnut: #8a5f3e;
+
+    --good: #a3c48d;
+    --good-soft: #233020;
+    --warn: #e6b860;
+    --warn-soft: #3a2c12;
+    --danger: #f08c75;
+    --danger-soft: #3d1d15;
+
+    --track: #33271d;
+    --data-1: #e39a5b;
+    --data-2: #a3c48d;
+    --data-3: #c9a466;
+    --data-4: #93a8c4;
+    --data-5: #c995b8;
+    --data-6: #b98a62;
+
+    --shadow: none;
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur: 0ms; --dur-slow: 0ms; }
+}
+
+/*
+  App-specific aliases. Keep these in the app's own styles.css, under the
+  pasted block, so each app keeps its existing variable names:
+
+  habit-tracker   --empty-cell: var(--track);
+  budget-tracker  --income: var(--good);  --expense: var(--danger);
+  workout-log     --good-bg: var(--good-soft);
+  recipe-book     --accent-light: var(--accent-soft);  --hl: var(--warn-soft);
+                  --star: var(--brass);
+*/

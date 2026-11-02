@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Menu — Brew &amp; Co</title>
+  <meta name="description" content="Coffee, pastries, light lunch and sweets at Brew & Co, Brooklyn.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="wordmark" href="index.html">Brew <span>&amp;</span> Co</a>
+      <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span><span class="sr-only">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="menu.html" aria-current="page">Menu</a>
+        <a href="about.html">About us</a>
+        <button class="btn sm nav-cta" type="button" data-open-reserve>Reserve a table</button>
+      </nav>
+    </div>
+  </header>
+
+
+  <main id="main" class="site-main">
+    <header class="page-hero page-hero--menu">
+      <p class="eyebrow">Brew &amp; Co · Brooklyn</p>
+      <h1>The Menu</h1>
+      <p class="page-lede">Everything we pour and bake, from first espresso to the last slice of cake.</p>
+    </header>
+
+    <nav class="menu-chips-bar" aria-label="Menu categories">
+      <div class="chips menu-chips" id="menu-chips"></div>
+    </nav>
+
+    <div class="menu-board" id="menu-board" aria-live="polite">
+      <p class="muted">Loading the menu…</p>
+    </div>
+
+    <p class="menu-footnote muted small">Prices include tax. Tell us about any allergies and we'll walk you through what's in everything.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <p class="wordmark">Brew <span>&amp;</span> Co</p>
+        <p class="muted small">Specialty coffee, fresh pastries and light lunches in Brooklyn since 2019.</p>
+      </div>
+      <div>
+        <p class="footer-title">Find us</p>
+        <p class="muted small">214 Hartwell Street<br>Brooklyn, NY 11216<br>hello@brewandco.example</p>
+      </div>
+      <div>
+        <p class="footer-title">Follow along</p>
+        <p class="small footer-links"><a href="#">Instagram</a> <a href="#">TikTok</a> <a href="#">Newsletter</a></p>
+      </div>
+    </div>
+    <p class="muted small footer-credit">Photography from <a href="https://www.pexels.com">Pexels</a>.</p>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>
